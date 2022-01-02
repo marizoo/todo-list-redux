@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import AddToDoForm from './components/AddToDoForm';
 import ToDoList from './components/ToDoList';
 import TotalCompleteItems from './components/TotalCompleteItems';
-import { centerIt, columnIt } from './globalStyle';
+import { columnIt } from './globalStyle';
+
 
 const AppContainer = styled.div`
 width: 100vw;
@@ -41,3 +42,5 @@ const App = () => {
 }
 
 export default App
+
+// https://www.youtube.com/watch?v=fiesH6WU63I&t=1s

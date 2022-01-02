@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import { columnIt } from '../globalStyle';
+import { useDispatch } from 'react-redux';
+import { toggleCompleteAsync, deleteTodo } from '../redux/todoSlice';
 
 const Li = styled.li`
     list-style: none;
@@ -35,9 +37,20 @@ const Button = styled.button`
         cursor: pointer;
 `
 
-
-
 const ToDoItem = ({id, title, completed}) => {
+    const dispatch = useDispatch();
+
+    const handleCompleteClick = () => {
+        dispatch(
+            toggleCompleteAsync({id: id, completed: !completed})
+        );
+
+    };
+
+    const handleDeleteClick = () => {
+        dispatch(deleteTodo({ id: id }));
+    }
+
     return (
         <Li>
             <Item>
@@ -45,10 +58,11 @@ const ToDoItem = ({id, title, completed}) => {
                     <Input 
                     type="checkbox" 
                     checked={completed}
+                    onChange={handleCompleteClick}
                     />
                     {title}
                 </Span>
-                <Button>Delete</Button>
+                <Button onClick={handleDeleteClick} >Delete</Button>
             </Item>
         </Li>
     )

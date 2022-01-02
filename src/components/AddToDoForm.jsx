@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
 import { columnIt } from '../globalStyle';
+import { useDispatch } from 'react-redux';
+import { addTodoAsync } from '../redux/todoSlice'
 
 const AddForm = styled.form`
 ${columnIt};
@@ -35,9 +37,14 @@ button {
 const AddToDoForm = () => {
     const [value, setValue] = useState('')
 
+    const dispatch = useDispatch();
+
     const onSubmit = (ev) => {
         ev.preventDefault();
-        console.log('user entered :' + value);
+        dispatch(
+            addTodoAsync({
+            title: value,
+        }))
     }
 
     return (

@@ -1,3 +1,3 @@
-a WHAT website created with React + styled component
-+ using WHAT...
-![Screenshot of the site](./screenshots/Agensy-website-800.png)
+a todo App created with React + styled component
++ using REDUX
+![Screenshot of the site](./screenshots/xxxx.png)
